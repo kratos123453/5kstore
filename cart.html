@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - 5k Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background: #f6f6f6; }
+        .cart-container { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); padding: 2rem; }
+        .cart-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .cart-items-list { border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin-bottom: 2rem; }
+        .cart-item { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 0; border-bottom: 1px solid #f1f1f1; }
+        .cart-item:last-child { border-bottom: none; }
+        .cart-item-info { display: flex; align-items: center; gap: 1.2rem; }
+        .cart-item-icon { font-size: 2.2rem; color: #8b5cf6; background: #f3f0fd; border-radius: 8px; padding: 0.7rem; }
+        .cart-item-details h4 { font-size: 1.1rem; font-weight: 600; margin: 0; }
+        .cart-item-details p { color: #888; font-size: 0.95rem; margin: 0.2rem 0 0 0; }
+        .cart-item-price { font-weight: 700; color: #222; font-size: 1.1rem; }
+        .cart-item-qty { display: flex; align-items: center; gap: 0.5rem; }
+        .qty-btn { background: #eee; border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 1.1rem; cursor: pointer; transition: background 0.2s; }
+        .qty-btn:hover { background: #8b5cf6; color: #fff; }
+        .cart-item-remove { background: none; border: none; color: #ef4444; font-size: 1.2rem; cursor: pointer; margin-left: 1rem; }
+        .cart-summary { text-align: right; margin-top: 2rem; }
+        .cart-total-label { font-size: 1.1rem; color: #555; margin-right: 1rem; }
+        .cart-total-value { font-size: 1.5rem; font-weight: 800; color: #8b5cf6; }
+        .proceed-btn { margin-top: 1.5rem; padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 700; background: linear-gradient(135deg, #8b5cf6, #a855f7); color: #fff; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
+        .proceed-btn:hover { background: linear-gradient(135deg, #a855f7, #8b5cf6); }
+        .empty-cart-section { text-align: center; padding: 4rem 0; }
+        .empty-cart-section i { font-size: 3.5rem; color: #d1d5db; margin-bottom: 1rem; }
+        .empty-cart-section h3 { font-size: 1.5rem; font-weight: 700; color: #222; margin-bottom: 0.5rem; }
+        .empty-cart-section p { color: #888; margin-bottom: 2rem; }
+        .empty-cart-section .btn { padding: 0.8rem 2rem; font-size: 1rem; background: #8b5cf6; color: #fff; border: none; border-radius: 8px; cursor: pointer; }
+        .download-invoice-btn { margin-top: 1rem; padding: 0.8rem 1.5rem; font-size: 1rem; font-weight: 600; background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .download-invoice-btn:hover { background: linear-gradient(135deg, #16a34a, #15803d); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3); }
+        @media (max-width: 700px) { .cart-container { padding: 1rem; } .cart-item-info { flex-direction: column; align-items: flex-start; gap: 0.5rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h1 class="logo-text">5k Store</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="shop.html" class="nav-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Shop</span>
+                </a>
+                <a href="cart.html" class="nav-link active">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                    <span class="cart-count"></span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cart-container">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+                <h2 class="cart-title">My Cart</h2>
+                <button id="clearCartBtn" class="btn" style="background:#ef4444;color:#fff;padding:0.7rem 1.5rem;border-radius:8px;font-weight:600;">Clear Cart</button>
+            </div>
+            <div id="cartItemsList" class="cart-items-list"></div>
+            <div id="emptyCartSection" class="empty-cart-section" style="display:none;">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Your cart is empty</h3>
+                <p>Looks like you haven't added any items yet.</p>
+                <a href="shop.html" class="btn">Continue Shopping</a>
+            </div>
+            <div class="cart-summary" id="cartSummary" style="display:none;">
+                <span class="cart-total-label">Total:</span>
+                <span class="cart-total-value" id="cartTotal">₦0.00</span>
+                <br>
+                <button class="download-invoice-btn" onclick="downloadInvoice()">
+                    <i class="fas fa-download"></i>
+                    Download Invoice
+                </button>
+                <button class="btn btn-primary" onclick="proceedToPayment()" style="margin-top: 1rem; width: 100%;">
+                    <i class="fas fa-credit-card"></i>
+                    Proceed to Payment
+                </button>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const clearBtn = document.getElementById('clearCartBtn');
+        if (clearBtn) {
+            clearBtn.addEventListener('click', function() {
+                if (confirm('Are you sure you want to clear your cart?')) {
+                    clearCartAndRefresh();
+                }
+            });
+        }
+    });
+
+    // Download Invoice Function
+    function downloadInvoice() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (cart.length === 0) {
+            alert('Your cart is empty!');
+            return;
+        }
+
+        // Calculate total
+        let total = 0;
+        cart.forEach(item => {
+            const priceNum = parseFloat(item.price.replace('₦', ''));
+            total += priceNum * item.quantity;
+        });
+
+        // Generate invoice HTML
+        const invoiceHTML = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>5k Store - Invoice</title>
+                <style>
+                    body { font-family: 'Arial', sans-serif; margin: 0; padding: 20px; background: #f8f9fa; }
+                    .invoice-container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+                    .invoice-header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #8b5cf6; padding-bottom: 20px; }
+                    .store-logo { font-size: 2rem; font-weight: bold; color: #8b5cf6; margin-bottom: 10px; }
+                    .invoice-title { font-size: 1.5rem; color: #333; margin-bottom: 5px; }
+                    .invoice-date { color: #666; font-size: 0.9rem; }
+                    .invoice-number { color: #8b5cf6; font-weight: bold; }
+                    .items-table { width: 100%; border-collapse: collapse; margin: 30px 0; }
+                    .items-table th { background: #8b5cf6; color: white; padding: 15px; text-align: left; font-weight: 600; }
+                    .items-table td { padding: 15px; border-bottom: 1px solid #eee; }
+                    .items-table tr:nth-child(even) { background: #f8f9fa; }
+                    .item-name { font-weight: 600; color: #333; }
+                    .item-price { color: #8b5cf6; font-weight: 600; }
+                    .item-total { color: #22c55e; font-weight: bold; }
+                    .total-section { margin-top: 30px; text-align: right; }
+                    .total-row { font-size: 1.1rem; margin: 10px 0; }
+                    .grand-total { font-size: 1.5rem; font-weight: bold; color: #8b5cf6; border-top: 2px solid #8b5cf6; padding-top: 10px; }
+                    .footer { margin-top: 40px; text-align: center; color: #666; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 20px; }
+                    @media print { body { background: white; } .invoice-container { box-shadow: none; } }
+                </style>
+            </head>
+            <body>
+                <div class="invoice-container">
+                    <div class="invoice-header">
+                        <div class="store-logo">5k Store</div>
+                        <div class="invoice-title">INVOICE</div>
+                        <div class="invoice-date">Date: ${new Date().toLocaleDateString('en-NG')}</div>
+                        <div class="invoice-number">Invoice #: INV-${Date.now().toString().slice(-6)}</div>
+                    </div>
+                    
+                    <table class="items-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${cart.map(item => {
+                                const priceNum = parseFloat(item.price.replace('₦', ''));
+                                const itemTotal = priceNum * item.quantity;
+                                return `
+                                    <tr>
+                                        <td class="item-name">${item.name}</td>
+                                        <td class="item-price">${item.price}</td>
+                                        <td>${item.quantity}</td>
+                                        <td class="item-total">₦${itemTotal.toLocaleString('en-NG', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                                    </tr>
+                                `;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                    
+                    <div class="total-section">
+                        <div class="total-row">
+                            <strong>Subtotal:</strong> ₦${total.toLocaleString('en-NG', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                        </div>
+                        <div class="total-row">
+                            <strong>Tax (0%):</strong> ₦0.00
+                        </div>
+                        <div class="total-row">
+                            <strong>Shipping:</strong> ₦0.00
+                        </div>
+                        <div class="grand-total">
+                            <strong>Total:</strong> ₦${total.toLocaleString('en-NG', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                        </div>
+                    </div>
+                    
+                    <div class="footer">
+                        <p>Thank you for shopping with 5k Store!</p>
+                        <p>For any questions, please contact us at support@5kstore.com</p>
+                        <p>This is a computer-generated invoice. No signature required.</p>
+                    </div>
+                </div>
+            </body>
+            </html>
+        `;
+
+        // Create blob and download
+        const blob = new Blob([invoiceHTML], { type: 'text/html' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `5k-store-invoice-${Date.now().toString().slice(-6)}.html`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+
+        // Show success message
+        showToast('Invoice downloaded successfully!', 'success');
+    }
+
+    // Proceed to Payment Function
+    function proceedToPayment() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (cart.length === 0) {
+            showToast('Your cart is empty!', 'error');
+            return;
+        }
+        window.location.href = 'payment.html';
+    }
+    </script>
+</body>
+</html> 

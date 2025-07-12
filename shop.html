@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - 5k Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h1 class="logo-text">5k Store</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="shop.html" class="nav-link active">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Shop</span>
+                </a>
+                <a href="cart.html" class="nav-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                    <span class="cart-count"></span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Shop Header -->
+        <section class="shop-header">
+            <div class="container">
+                <h1>Shop Our Collection</h1>
+                <p>Discover amazing products across all categories. From fashion to electronics, home goods to lifestyle essentials.</p>
+            </div>
+        </section>
+
+        <!-- Filters and Products -->
+        <section class="shop-content">
+            <div class="container">
+                <div class="shop-layout">
+                    <!-- Filters Sidebar -->
+                    <aside class="filters-sidebar">
+                        <div class="filter-section">
+                            <h3>Categories</h3>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" value="clothing">
+                                    <span>Fashion & Clothing</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="electronics">
+                                    <span>Electronics</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="home">
+                                    <span>Home & Living</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="sports">
+                                    <span>Sports & Fitness</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="filter-section">
+                            <h3>Price Range</h3>
+                            <div class="price-range">
+                                <input type="range" id="priceRange" min="0" max="200" value="200">
+                                <div class="price-labels">
+                                    <span>$0</span>
+                                    <span id="priceValue">$200</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-section">
+                            <h3>Brand</h3>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" value="premium">
+                                    <span>Premium</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="budget">
+                                    <span>Budget Friendly</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="eco">
+                                    <span>Eco-Friendly</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="trending">
+                                    <span>Trending</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="filter-section">
+                            <h3>Rating</h3>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" value="5-star">
+                                    <span>⭐⭐⭐⭐⭐ 5 Stars</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="4-star">
+                                    <span>⭐⭐⭐⭐ 4+ Stars</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="3-star">
+                                    <span>⭐⭐⭐ 3+ Stars</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="clear-filters-btn">
+                            <i class="fas fa-times"></i>
+                            Clear All Filters
+                        </button>
+                    </aside>
+
+                    <!-- Products Grid -->
+                    <div class="products-section">
+                        <div class="products-header">
+                            <div class="products-count">
+                                <span id="productCount">24</span> products found
+                            </div>
+                            <div class="products-sort">
+                                <select id="sortSelect">
+                                    <option value="newest">Newest First</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="name">Name: A to Z</option>
+                                    <option value="rating">Highest Rated</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="products-grid" id="productsGrid">
+                            <!-- Fashion & Clothing -->
+                            <div class="product-card" data-category="clothing" data-price="19.99" data-brand="premium" data-rating="5-star">
+                                <div class="product-image">
+                                    <i class="fas fa-tshirt"></i>
+                                    <div class="product-badge">New</div>
+                                </div>
+                                <div class="product-info">
+                                    <h4>Premium Cotton T-Shirt</h4>
+                                    <p>Ultra-soft cotton blend with a modern fit</p>
+                                    <div class="product-meta">
+                                        <span class="brand">Premium</span>
+                                        <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="price">₦19,99</p>
+                                    <button class="add-to-cart-btn" data-product="1">
+                                        <i class="fas fa-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="clothing" data-price="29.99" data-brand="trending" data-rating="4-star">
+                                <div class="product-image">
+                                    <i class="fas fa-tshirt"></i>
+                                </div>
+                                <div class="product-info">
+                                    <h4>Designer Hoodie</h4>
+                                    <p>Comfortable and stylish hoodie for everyday wear</p>
+                                    <div class="product-meta">
+                                        <span class="brand">Trending</span>
+                                        <span class="rating">⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="price">₦29,99</p>
+                                    <button class="add-to-cart-btn" data-product="2">
+                                        <i class="fas fa-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Electronics -->
+                            <div class="product-card" data-category="electronics" data-price="14.99" data-brand="budget" data-rating="4-star">
+                                <div class="product-image">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="product-info">
+                                    <h4>Smartphone Case</h4>
+                                    <p>Protective and stylish case for your phone</p>
+                                    <div class="product-meta">
+                                        <span class="brand">Budget</span>
+                                        <span class="rating">⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="price">₦14,99</p>
+                                    <button class="add-to-cart-btn" data-product="3">
+                                        <i class="fas fa-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="electronics" data-price="49.99" data-brand="premium" data-rating="5-star">
+                                <div class="product-image">
+                                    <i class="fas fa-headphones"></i>
+                                    <div class="product-badge">Sale</div>
+                                </div>
+                                <div class="product-info">
+                                    <h4>Wireless Headphones</h4>
+                                    <p>High-quality sound with noise cancellation</p>
+                                    <div class="product-meta">
+                                        <span class="brand">Premium</span>
+                                        <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="price">₦49,99</p>
+                                    <button class="add-to-cart-btn" data-product="4">
+                                        <i class="fas fa-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="electronics" data-price="29.99" data-brand="budget" data-rating="4-star">
+                                <div class="product-image">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <div class="product-info">
+                                    <h4>Laptop Stand</h4>
+                                    <p>Ergonomic stand for better productivity</p>
+                                    <div class="product-meta">
+                                        <span class="brand">Budget</span>
+                                        <span class="rating">⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="price">₦29,99</p>
+                                    <button class="add-to-cart-btn" data-product="5">
+                                        <i class="fas fa-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Home & Living -->
+                            <div class="product-card" data-category="home" data-price="9.99" data-brand="eco" data-rating="5-star">
+                                <div class="product-image">
+                                    <i class="fas fa-coffee"></i>
+                                </div>
+                                <div class="product-info">
+                                    <h4>Premium Coffee Mug</h4>
+                                    <p>Elegant ceramic mug for your daily brew</p>
+                                    <div class="product-meta">
+                                        <span class="brand">Eco-Friendly</span>
+                                        <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="price">₦9,99</p>
+                                    <button class="add-to-cart-btn" data-product="6">
+                                        <i class="fas fa-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="home" data-price="24.99" data-brand="premium" data-rating="4-star">
+                                <div class="product-image">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="product-info">
+                                    <h4>Smart LED Bulb</h4>
+                                    <p>Energy-efficient smart lighting solution</p>
+                                    <div class="product-meta">
+                                        <span class="brand">Premium</span>
+                                        <span class="rating">⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="price">₦24,99</p>
+                                    <button class="add-to-cart-btn" data-product="7">
+                                        <i class="fas fa-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Sports & Fitness -->
+                            <div class="product-card" data-category="sports" data-price="39.99" data-brand="premium" data-rating="5-star">
+                                <div class="product-image">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                <div class="product-info">
+                                    <h4>Fitness Equipment Set</h4>
+                                    <p>Professional grade workout gear</p>
+                                    <div class="product-meta">
+                                        <span class="brand">Premium</span>
+                                        <span class="rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="price">₦39,99</p>
+                                    <button class="add-to-cart-btn" data-product="8">
+                                        <i class="fas fa-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="sports" data-price="19.99" data-brand="budget" data-rating="4-star">
+                                <div class="product-image">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <div class="product-info">
+                                    <h4>Running Shoes</h4>
+                                    <p>Comfortable shoes for your daily runs</p>
+                                    <div class="product-meta">
+                                        <span class="brand">Budget</span>
+                                        <span class="rating">⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="price">₦19,99</p>
+                                    <button class="add-to-cart-btn" data-product="9">
+                                        <i class="fas fa-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="sports" data-price="34.99" data-brand="trending" data-rating="4-star">
+                                <div class="product-image">
+                                    <i class="fas fa-basketball-ball"></i>
+                                </div>
+                                <div class="product-info">
+                                    <h4>Basketball</h4>
+                                    <p>Official size basketball for indoor/outdoor use</p>
+                                    <div class="product-meta">
+                                        <span class="brand">Trending</span>
+                                        <span class="rating">⭐⭐⭐⭐</span>
+                                    </div>
+                                    <p class="price">₦34,99</p>
+                                    <button class="add-to-cart-btn" data-product="10">
+                                        <i class="fas fa-plus"></i>
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Load More Button -->
+                        <div class="load-more-container">
+                            <button class="btn btn-secondary" id="loadMoreBtn">
+                                <i class="fas fa-plus"></i>
+                                Load More Products
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>5k Store</h4>
+                <p>Your one-stop destination for quality products at unbeatable prices. We bring you the best selection across all categories.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="shop.html?category=clothing">Fashion & Clothing</a></li>
+                    <li><a href="shop.html?category=electronics">Electronics</a></li>
+                    <li><a href="shop.html?category=home">Home & Living</a></li>
+                    <li><a href="shop.html?category=sports">Sports & Fitness</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 5k Store. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+    <script src="cart.js"></script>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="product-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);z-index:9999;align-items:center;justify-content:center;">
+      <div class="modal-content" style="background:#fff;border-radius:16px;max-width:600px;width:95vw;box-shadow:0 8px 40px rgba(0,0,0,0.18);display:flex;gap:2rem;padding:2rem;position:relative;">
+        <button id="closeModalBtn" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;color:#888;cursor:pointer;"><i class="fas fa-times"></i></button>
+        <div class="modal-image" style="flex:0 0 140px;display:flex;align-items:center;justify-content:center;font-size:3rem;background:#f8fafc;border-radius:12px;width:140px;height:140px;"></div>
+        <div class="modal-info" style="flex:1;display:flex;flex-direction:column;gap:1rem;">
+          <h3 class="modal-title" style="font-size:1.5rem;font-weight:700;margin:0;"></h3>
+          <p class="modal-price" style="font-size:1.2rem;font-weight:600;color:#8b5cf6;margin:0;"></p>
+          <p class="modal-desc" style="color:#555;font-size:1rem;line-height:1.6;margin:0;"></p>
+          <div class="modal-preferable" style="background:#f8fafc;padding:1rem;border-radius:8px;color:#22c55e;font-weight:600;font-size:1rem;"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+    // Product descriptions (add more as needed)
+    const productDescriptions = {
+      '1': 'Premium Cotton T-Shirt: Ultra-soft cotton blend with a modern fit. Perfect for everyday comfort and style.',
+      '2': 'Designer Hoodie: Comfortable and stylish hoodie for everyday wear. Stay warm and trendy.',
+      '3': 'Smartphone Case: Protective and stylish case for your phone. Durable and lightweight.',
+      '4': 'Wireless Headphones: High-quality sound with noise cancellation. Enjoy music on the go.',
+      '5': 'Laptop Stand: Ergonomic stand for better productivity. Adjustable and portable.',
+      '6': 'Premium Coffee Mug: Elegant ceramic mug for your daily brew. Keeps drinks hot or cold.',
+      '7': 'Smart LED Bulb: Energy-efficient smart lighting solution. Control with your phone.',
+      '8': 'Fitness Equipment Set: Professional grade workout gear. Everything you need for home fitness.',
+      '9': 'Running Shoes: Comfortable shoes for your daily runs. Lightweight and durable.',
+      '10': 'Basketball: Official size basketball for indoor/outdoor use. Great grip and bounce.'
+    };
+    // Preferable reasons (enlighten the customer)
+    const productPreferable = {
+      '1': "You'll love how this t-shirt feels on your skin—soft, breathable, and perfect for Nigeria's climate. It's a wardrobe essential!",
+      '2': "This hoodie is your go-to for chilly mornings or cozy evenings. Stylish enough for outings, comfy enough for home.",
+      '3': "Protect your phone in style! This case is shock-absorbent and slim, so your device stays safe without the bulk.",
+      '4': "Experience music like never before. These headphones block out noise and deliver deep, rich sound—ideal for commutes or workouts.",
+      '5': "Say goodbye to neck pain! This stand puts your laptop at the perfect angle for work or study, anywhere you go.",
+      '6': "Start your day right with a mug that keeps your coffee hot and looks great on your desk. Makes a perfect gift, too!",
+      '7': "Transform your home with smart lighting. Save energy and set the mood—all from your phone.",
+      '8': "Build your dream home gym! This set is durable, versatile, and perfect for all fitness levels.",
+      '9': "Run farther, run faster. These shoes are engineered for comfort and support, mile after mile.",
+      '10': "Whether for practice or play, this basketball offers pro-level grip and bounce. Great for all ages!"
+    };
+    
+    // Default fallback text for future products
+    const defaultDescription = "This premium product offers excellent quality and value. Perfect for everyday use, it combines functionality with style to meet your needs. Trusted by customers for its reliability and performance.";
+    const defaultPreferable = "This product is carefully selected for quality and value. It's designed to enhance your daily life and provide lasting satisfaction. A smart choice for anyone looking for reliable, well-made items.";
+    
+    // Modal logic
+    const modal = document.getElementById('productModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modalImage = modal.querySelector('.modal-image');
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalPrice = modal.querySelector('.modal-price');
+    const modalDesc = modal.querySelector('.modal-desc');
+    const modalPreferable = modal.querySelector('.modal-preferable');
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        // Prevent add-to-cart button from triggering modal
+        if (e.target.closest('.add-to-cart-btn')) return;
+        const id = card.getAttribute('data-product');
+        const name = card.querySelector('h4')?.textContent || '';
+        const price = card.querySelector('.price')?.textContent || '';
+        const icon = card.querySelector('.product-image i')?.outerHTML || '';
+        modalImage.innerHTML = icon;
+        modalTitle.textContent = name;
+        modalPrice.textContent = price;
+        modalDesc.textContent = productDescriptions[id] || defaultDescription;
+        modalPreferable.textContent = productPreferable[id] || defaultPreferable;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    closeModalBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    });
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+    </script>
+</body>
+</html> 

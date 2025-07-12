@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5k Store - Premium Shopping Experience</title>
+    <link rel="stylesheet" href="style.css?v=2.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h1 class="logo-text">5k Store</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="shop.html" class="nav-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Shop</span>
+                </a>
+                <a href="cart.html" class="nav-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                    <span class="cart-count"></span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Discover Amazing Products</h1>
+                <p>Your one-stop destination for quality items at unbeatable prices. From fashion to electronics, home goods to lifestyle essentials.</p>
+                <div class="hero-buttons">
+                    <a href="shop.html" class="btn btn-primary">
+                        <i class="fas fa-shopping-bag"></i>
+                        Shop Now
+                    </a>
+                    <a href="#featured" class="btn btn-secondary">
+                        <i class="fas fa-eye"></i>
+                        View Collection
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FIFA-Style Category Selection -->
+        <section class="fifa-categories">
+            <div class="container">
+                <h2 class="section-title">Choose Your Category</h2>
+                <div class="fifa-categories-container">
+                    <div class="fifa-category-grid">
+                        <div class="fifa-category-card" data-category="clothing">
+                            <div class="fifa-card-bg"></div>
+                            <div class="fifa-card-content">
+                                <div class="fifa-card-icon">
+                                    <i class="fas fa-tshirt"></i>
+                                </div>
+                                <div class="fifa-card-info">
+                                    <h3>Fashion & Clothing</h3>
+                                    <p>Trendy clothing and accessories</p>
+                                    <div class="fifa-card-stats">
+                                        <span class="stat">50+ Items</span>
+                                        <span class="stat">Premium</span>
+                                    </div>
+                                </div>
+                                <div class="fifa-card-overlay">
+                                    <div class="fifa-overlay-content">
+                                        <span class="fifa-overlay-title">FASHION MODE</span>
+                                        <span class="fifa-overlay-subtitle">Style Your Way</span>
+                                        <div class="fifa-overlay-icon">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="fifa-category-card" data-category="electronics">
+                            <div class="fifa-card-bg"></div>
+                            <div class="fifa-card-content">
+                                <div class="fifa-card-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="fifa-card-info">
+                                    <h3>Electronics</h3>
+                                    <p>Latest gadgets and tech</p>
+                                    <div class="fifa-card-stats">
+                                        <span class="stat">30+ Items</span>
+                                        <span class="stat">Smart</span>
+                                    </div>
+                                </div>
+                                <div class="fifa-card-overlay">
+                                    <div class="fifa-overlay-content">
+                                        <span class="fifa-overlay-title">TECH MODE</span>
+                                        <span class="fifa-overlay-subtitle">Innovate & Connect</span>
+                                        <div class="fifa-overlay-icon">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="fifa-category-card" data-category="home">
+                            <div class="fifa-card-bg"></div>
+                            <div class="fifa-card-content">
+                                <div class="fifa-card-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="fifa-card-info">
+                                    <h3>Home & Living</h3>
+                                    <p>Perfect your living space</p>
+                                    <div class="fifa-card-stats">
+                                        <span class="stat">40+ Items</span>
+                                        <span class="stat">Comfort</span>
+                                    </div>
+                                </div>
+                                <div class="fifa-card-overlay">
+                                    <div class="fifa-overlay-content">
+                                        <span class="fifa-overlay-title">HOME MODE</span>
+                                        <span class="fifa-overlay-subtitle">Create & Inspire</span>
+                                        <div class="fifa-overlay-icon">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="fifa-category-card" data-category="sports">
+                            <div class="fifa-card-bg"></div>
+                            <div class="fifa-card-content">
+                                <div class="fifa-card-icon">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                <div class="fifa-card-info">
+                                    <h3>Sports & Fitness</h3>
+                                    <p>Stay active and healthy</p>
+                                    <div class="fifa-card-stats">
+                                        <span class="stat">25+ Items</span>
+                                        <span class="stat">Power</span>
+                                    </div>
+                                </div>
+                                <div class="fifa-card-overlay">
+                                    <div class="fifa-overlay-content">
+                                        <span class="fifa-overlay-title">FITNESS MODE</span>
+                                        <span class="fifa-overlay-subtitle">Train & Dominate</span>
+                                        <div class="fifa-overlay-icon">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="products" id="featured">
+            <div class="container">
+                <h2 class="section-title">Featured Collection</h2>
+                <div class="products-grid">
+                    <div class="product-card rotating" data-product="1">
+                        <div class="product-image">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4>Premium Cotton T-Shirt</h4>
+                            <p>Ultra-soft cotton blend with a modern fit</p>
+                            <p class="price">₦19,99</p>
+                            <button class="add-to-cart-btn" data-product="1">
+                                <i class="fas fa-plus"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card rotating" data-product="2">
+                        <div class="product-image">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4>Smartphone Case</h4>
+                            <p>Protective and stylish case for your phone</p>
+                            <p class="price">₦14,99</p>
+                            <button class="add-to-cart-btn" data-product="2">
+                                <i class="fas fa-plus"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card rotating" data-product="3">
+                        <div class="product-image">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4>Wireless Headphones</h4>
+                            <p>High-quality sound with noise cancellation</p>
+                            <p class="price">₦49,99</p>
+                            <button class="add-to-cart-btn" data-product="3">
+                                <i class="fas fa-plus"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card rotating" data-product="4">
+                        <div class="product-image">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4>Laptop Stand</h4>
+                            <p>Ergonomic stand for better productivity</p>
+                            <p class="price">₦29,99</p>
+                            <button class="add-to-cart-btn" data-product="4">
+                                <i class="fas fa-plus"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card rotating" data-product="5">
+                        <div class="product-image">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4>Fitness Equipment</h4>
+                            <p>Professional grade workout gear</p>
+                            <p class="price">₦39,99</p>
+                            <button class="add-to-cart-btn" data-product="5">
+                                <i class="fas fa-plus"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card rotating" data-product="6">
+                        <div class="product-image">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4>Premium Coffee Mug</h4>
+                            <p>Elegant ceramic mug for your daily brew</p>
+                            <p class="price">₦9,99</p>
+                            <button class="add-to-cart-btn" data-product="6">
+                                <i class="fas fa-plus"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-container">
+                    <a href="shop.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i>
+                        View All Products
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Store Features -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose 5k Store?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3>Fast Shipping</h3>
+                        <p>Free shipping on orders over $50. Get your items delivered to your door in 2-3 business days.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Premium Quality</h3>
+                        <p>We source only the finest products and work with trusted manufacturers to ensure exceptional quality.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h3>Easy Returns</h3>
+                        <p>Not satisfied? Return your purchase within 30 days for a full refund. No questions asked.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Customer Love</h3>
+                        <p>Join thousands of satisfied customers who trust us for their shopping needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter for exclusive offers, new arrivals, and shopping tips.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>5k Store</h4>
+                <p>Your one-stop destination for quality products at unbeatable prices. We bring you the best selection across all categories.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="shop.html?category=clothing">Fashion & Clothing</a></li>
+                    <li><a href="shop.html?category=electronics">Electronics</a></li>
+                    <li><a href="shop.html?category=home">Home & Living</a></li>
+                    <li><a href="shop.html?category=sports">Sports & Fitness</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 5k Store. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>
